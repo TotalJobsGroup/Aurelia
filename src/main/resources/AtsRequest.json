@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-03/schema#",
+  "type": "object",
+  "javaType": "com.totaljobsgroup.aurelia.model.AtsRequest",
+  "required": "true",
+  "properties": {
+    "Header": {
+      "javaType": "com.totaljobsgroup.aurelia.model.AtsRequestHeader",
+      "type": "object",
+      "required": "true",
+      "extends": {
+        "$ref": "AtsRequestHeader.json"
+      }
+    },
+    "Body": {
+      "type": "object",
+      "$ref": "AtsRequestBody.json"
+    }
+  }
+}

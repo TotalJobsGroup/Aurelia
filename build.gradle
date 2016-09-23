@@ -1,0 +1,32 @@
+group 'com.totaljobsgroup.aurelia'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'jsonschema2pojo'
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'org.jsonschema2pojo:jsonschema2pojo-gradle-plugin:0.4.5'
+    }
+}
+
+jsonSchema2Pojo {
+    source = files(sourceSets.main.resources.srcDirs.toArray())
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'commons-lang', name: 'commons-lang', version: '2.6'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '1.4.0.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-test', version: '1.4.0.RELEASE'
+    compile group: 'org.springframework', name: 'spring-test', version: '4.3.3.RELEASE'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile group: 'org.mockito', name: 'mockito-core', version: '1.10.19'
+}

@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-03/schema#",
+  "type": "object",
+  "javaType": "com.totaljobsgroup.aurelia.model.AtsResponse",
+  "properties": {
+    "Header": {
+      "javaType": "com.totaljobsgroup.aurelia.model.AtsResponseHeader",
+      "type": "object",
+      "required": "true",
+      "properties": {
+        "Id": {
+          "description": "Uuid which correlates request and response",
+          "type": "string"
+        },
+        "Status": {
+          "description": "Status of processed message",
+          "type": "string",
+          "required": "true",
+          "enum": [
+            "OK",
+            "ERROR"
+          ]
+        },
+        "ErrorMsg": {
+          "description": "Unique Error Identifier in the source system",
+          "type": "string"
+        },
+        "ErrorDesc": {
+          "description": "Full error text message",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Body": {
+      "javaType": "com.totaljobsgroup.aurelia.model.AtsResponseBody",
+      "type": "object",
+      "required": "true",
+      "properties": {
+        "BackUrl": {
+          "description": "ATS return URL for Job Board redirection",
+          "type": "string",
+          "format": "uri",
+          "required": "false"
+        },
+        "Redirect": {
+          "description": "If redirect user to ATS",
+          "type": "string",
+          "required": "true",
+          "enum": [
+            "YES",
+            "NO"
+          ]
+        },
+        "MobileFriendly": {
+          "description": "If ATS is mobile friendly",
+          "$ref": "MobileFriendly.json"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

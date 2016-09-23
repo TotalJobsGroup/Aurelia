@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-03/schema#",
+  "id": "Attachment",
+  "type": "object",
+  "javaType": "com.totaljobsgroup.aurelia.model.Attachment",
+  "properties": {
+    "BinaryData": {
+      "description": "Base64 encoded data",
+      "type": "string",
+      "required": "true",
+      "minLength": 1
+    },
+    "FileType": {
+      "type": "string",
+      "required": "true",
+      "enum": [
+        "txt",
+        "doc",
+        "docx",
+        "rtf",
+        "pdf",
+        "odt"
+      ]
+    },
+    "FileName": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": "true"
+}

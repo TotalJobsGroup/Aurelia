@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-03/schema#",
+  "type": "object",
+  "javaType": "com.totaljobsgroup.aurelia.model.AtsRequestBody",
+  "required": "true",
+  "properties": {
+    "Email": {
+      "description": "Email address of candidate",
+      "type": "string",
+      "format": "email",
+      "required": "true"
+    },
+    "CV": {
+      "$ref": "Attachment.json",
+      "required": "true"
+    },
+    "CoverLetter": {
+      "type": "object",
+      "$ref": "Attachment.json"
+    },
+    "MessageToRecruiter": {
+      "type": "string",
+      "default" : null
+    },
+    "AdditionalDocuments": {
+      "type": "array",
+      "default" : null,
+      "items": {
+        "$ref": "Attachment.json"
+      }
+    }
+  },
+  "additionalProperties": "true"
+}
