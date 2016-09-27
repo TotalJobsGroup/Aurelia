@@ -6,9 +6,17 @@ The data model for requests and responses is deffined in json schema and can be 
 The following steps will guide you through the process of building, running and testing the application.
 To build and run the application you need Java 1.8 or later.
 
+The application will be build with Gradle that will download all necessary dependencies. If you have a proxy in your organization you can cofigure it in `gradle.properties` file which is placed in main folder of the project.
+
 #### Building the application
-To build the application use the following command:
-```gradlew clean uberjar```
+
+###### Windows environment:
+Just use the following command:
+`gradlew clean uberjar`
+
+###### Linux environment:
+First check if gradlew file is executable and then use the following command:
+ `./gradlew clean uberjar`
 
 #### Running the application
 To run the application use the following command:
