@@ -1,26 +1,31 @@
 # Aurelia
-Aurelia is an example of ATS Endpoint that can consume example ATS Request and produce example ATS Response both valid from TotalJobs ATSi Consumer Guide.
+Aurelia is an example of ATS Endpoint that can consume an example ATS Request and produce an example ATS Response both compliant with TotalJobs ATSi Apply Consumer Guide.
+It is a refference implementation of the endpoint written in Java with Spring framework and Gradle.
+It gives you a possible implementation however any technology that support RESTful services is possible to use.
+The data model for requests and responses is deffined in json schema and can be reused in any other technologies that supports json schema.
+The following steps will guide you through the process of building, running and testing the application.
+To build and run the application you need Java 1.8 or later.
 
 #### Building the application
-To build the application use a following command:
+To build the application use the following command:
 ```gradlew clean uberjar```
 
 #### Running the application
-To run the application use a following command:
+To run the application use the following command:
 ```java -jar build\libs\aurelia-all-1.0-SNAPSHOT.jar```
 
-There will be a long log file, which should end with:
+A long log file will appear that should end with:
 
 ```ruby
-13:26:07.950 [main] INFO org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http)
-13:26:07.956 [main] INFO com.totaljobsgroup.aurelia.AureliaController - Started AureliaController in 8.055 seconds (JVM running for 8.352)
+2016-09-27 15:44:44.285  INFO   --- [           main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+2016-09-27 15:44:44.291  INFO   --- [           main] c.t.aurelia.AureliaController            : Started AureliaController in 4.023 seconds (JVM running for 4.413)
 ```
 
-You can test it in your web browser by opening a following link:
+You can test it in your web browser by opening the following link:
 http://localhost:8080
 
 You should see:
- > Hello World! My name is Aurelia. I'm the Applicant Tracking System.
+ > Hello World! My name is Aurelia. I'm an Applicant Tracking System.
 
 The application is now up and running. You can test the endpoint by sending HTTP POST request to http://localhost:8080/apply using e.g. Chrome Postman, curl or any other HTTP/REST client you want.
 
@@ -29,7 +34,7 @@ The request should contain at least a header:
  Content-Type: application/json
  ```
 
-And example following body:
+And, as an example, the following body:
 
 ```
 {
@@ -74,7 +79,7 @@ And example following body:
 }
 ```
 
-You should receive a following response:
+You should receive the following response:
 
 ```
 {
