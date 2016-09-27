@@ -5,13 +5,7 @@ import com.totaljobsgroup.aurelia.model.AtsResponse;
 import com.totaljobsgroup.aurelia.model.AtsResponseHeader;
 import com.totaljobsgroup.aurelia.model.Attachment;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.amqp.RabbitAutoConfiguration;
-import org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration;
-import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,20 +14,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @SpringBootApplication
-//@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class,
-//        RabbitAutoConfiguration.class,
-//        HibernateJpaAutoConfiguration.class,
-//        JpaRepositoriesAutoConfiguration.class,
-//        DataSourceAutoConfiguration.class,
-//        DataSourceTransactionManagerAutoConfiguration.class})
 public class AureliaController {
 
     @ResponseBody
     @RequestMapping("/")
     String home() {
-        System.out.println(System.getProperty("logging.level.org.springframework"));
-        System.out.println(System.getenv("logging.level.org.springframework"));
-        return "Hello World! My name is Aurelia. I'm the Applicant Tracking System.";
+        return "Hello World! My name is Aurelia. I'm an Applicant Tracking System.";
     }
 
     @ResponseBody
