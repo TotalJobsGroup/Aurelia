@@ -1,5 +1,5 @@
 # Aurelia
-Aurelia is an example of ATS Endpoint that can consume example ATS Request and produce exmaple ATS Response both valid from TotalJobs ATSi Consumer Guide.
+Aurelia is an example of ATS Endpoint that can consume example ATS Request and produce example ATS Response both valid from TotalJobs ATSi Consumer Guide.
 
 #### Building the application
 To build the application use a following command:
