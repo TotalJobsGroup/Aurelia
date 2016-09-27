@@ -7,6 +7,7 @@ The following steps will guide you through the process of building, running and 
 To build and run the application you need Java 1.8 or later.
 
 The application will be build with Gradle that will download all necessary dependencies. If you have a proxy in your organization you can cofigure it in `gradle.properties` file which is placed in main folder of the project.
+You can find there some example proxy configuration which is now commented out.
 
 #### Building the application
 
