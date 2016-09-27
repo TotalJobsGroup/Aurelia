@@ -1,13 +1,12 @@
 # Aurelia
-Aurelia is an example of ATS Endpoint that can consume an example ATS Request and produce an example ATS Response both compliant with TotalJobs ATSi Apply Consumer Guide.
-It is a refference implementation of the endpoint written in Java with Spring framework and Gradle.
-It gives you a possible implementation however any technology that support RESTful services is possible to use.
-The data model for requests and responses is deffined in json schema and can be reused in any other technologies that supports json schema.
+Aurelia is an example of ATS Endpoint that can consume an example ATS Request and produce an example ATS Response, both compliant with TotalJobs ATSi Apply Consumer Guide.
+It is a reference implementation of the endpoint written in Java language with Spring framework and Gradle build tool, however it is possible to use any technology that supports RESTful services.
+The data model for requests and responses is defined in json schema and can be reused in any other technologies that supports json schema.
 The following steps will guide you through the process of building, running and testing the application.
 To build and run the application you need Java 1.8 or later.
 
-The application will be build with Gradle that will download all necessary dependencies. If you have a proxy in your organization you can cofigure it in `gradle.properties` file which is placed in main folder of the project.
-You can find there some example proxy configuration which is now commented out.
+The application will be built with Gradle that will download all necessary dependencies. If you have a proxy in your organization you can configure it in `gradle.properties` file which is placed in the main folder of the project.
+You can find there an example proxy configuration which is now commented out.
 
 #### Building the application
 
