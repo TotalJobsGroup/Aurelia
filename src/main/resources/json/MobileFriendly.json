@@ -1,0 +1,11 @@
+{
+  "$schema": "http://json-schema.org/draft-03/schema#",
+  "id": "MobileFriendly",
+  "type": "string",
+  "javaType": "com.totaljobsgroup.aurelia.model.MobileFriendly",
+  "enum": [
+    "YES",
+    "NO",
+    "UNKNOWN"
+  ]
+}
