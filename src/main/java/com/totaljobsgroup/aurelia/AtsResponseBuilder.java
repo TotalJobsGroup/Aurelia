@@ -10,6 +10,7 @@ import java.util.Optional;
 class AtsResponseBuilder {
     AtsResponseHeader.Status status = AtsResponseHeader.Status.OK;
     Optional<String> backUrl = Optional.<String>empty();
+    private String errorMsg;
 
     public static AtsResponseBuilder builder() {
         return new AtsResponseBuilder();
@@ -27,16 +28,22 @@ class AtsResponseBuilder {
         return this;
     }
 
+    public AtsResponseBuilder withErrorMsg(String errorMsg) {
+        this.errorMsg = errorMsg;
+        return this;
+    }
+
     public AtsResponse build() {
         AtsResponse atsResponse = new AtsResponse();
-        atsResponse.setHeader(createResponseHeader(this.status));
+        atsResponse.setHeader(createResponseHeader(this.status, this.errorMsg));
         atsResponse.setBody(createResponseBody(this.backUrl));
         return atsResponse;
     }
 
-    private AtsResponseHeader createResponseHeader(AtsResponseHeader.Status status) {
+    private AtsResponseHeader createResponseHeader(AtsResponseHeader.Status status, String errorMsg) {
         AtsResponseHeader responseHeader = new AtsResponseHeader();
         responseHeader.setStatus(status);
+        responseHeader.setErrorMsg(errorMsg);
         return responseHeader;
     }
 
