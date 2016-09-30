@@ -29,7 +29,7 @@ task uberjar(type: Jar) {
                 'Built-By': System.getProperty('user.name'),
                 'Built-Date': new Date(),
                 'Built-JDK': System.getProperty('java.version'),
-                'Main-Class': 'com.totaljobsgroup.aurelia.AureliaController'
+                'Main-Class': 'com.totaljobsgroup.aurelia.Aurelia'
     }
     baseName = project.name + '-all'
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
