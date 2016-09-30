@@ -21,14 +21,15 @@ import static org.mockito.Mockito.when;
 @RunWith(JUnitParamsRunner.class)
 public class ApplicationProcessorTest {
 
+    private static String REDIRECTION_PAGE = "http://redirection.page";
+
     @Test
     @Parameters(method = "requestResponseParameters")
     public void shouldPrepareProperResponse(boolean redirect, boolean jobAvailable, AtsResponseBody.Redirect expectedRedirect, String expectedErrorMsg, String expectedRedirectUrl) {
         // given
-        String redirectionPage = "http://redirection.page";
         URI expectedBackUrl = URI.create(expectedRedirectUrl);
         AtsRequest atsRequestMock = prepareAtsRequestMock();
-        JobDB jobDBMock = prepareJobDBMock(redirect, jobAvailable, redirectionPage);
+        JobDB jobDBMock = prepareJobDBMock(redirect, jobAvailable, REDIRECTION_PAGE);
         ApplicationProcessor objectUnderTest = new ApplicationProcessor(jobDBMock, new JobUrlProcessor());
 
         // when
@@ -42,7 +43,7 @@ public class ApplicationProcessorTest {
 
     private Object[] requestResponseParameters() {
         return new Object[]{
-                new Object[]{true, true, AtsResponseBody.Redirect.YES, null, "http://redirection.page"},
+                new Object[]{true, true, AtsResponseBody.Redirect.YES, null, REDIRECTION_PAGE},
                 new Object[]{true, false, AtsResponseBody.Redirect.NO, "JOB_NOT_AVAILABLE", ""},
                 new Object[]{false, true, AtsResponseBody.Redirect.NO, null, ""},
                 new Object[]{false, false, AtsResponseBody.Redirect.NO, "JOB_NOT_AVAILABLE", ""},
