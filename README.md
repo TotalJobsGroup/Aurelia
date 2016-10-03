@@ -23,9 +23,9 @@ To run the application use the following command:
 ```java -jar build\libs\aurelia-all-1.0-SNAPSHOT.jar```
 
 The application starts on port number 8080. If you have some other servive bound to that port you can change port number with -Dserver.port option, i.e.:
-```java -jar build\libs\aurelia-all-1.0-SNAPSHOT.jar -Dserver.port=9090```
+```java -Dserver.port=9090 -jar build\libs\aurelia-all-1.0-SNAPSHOT.jar```
 
-To check what ports are already bound you can use ```netstat -atn```
+To check what ports are already bound you can use the following command: ```netstat -atn```
 
 A long log file will appear that should end with:
 
