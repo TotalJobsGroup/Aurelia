@@ -7,18 +7,12 @@ public class JobDB {
 
     public boolean doesJobRequireRedirection(int jobId) {
         // example logic - every job with id that ends with 45 need redirection
-        if (jobId % 100 == 45) {
-            return true;
-        }
-        return false;
+        return (jobId % 100 == 45);
     }
 
     public boolean isJobAvailable(int jobId) {
         // example logic - every job with id that ends with 89 is not available
-        if (jobId % 100 == 89) {
-            return false;
-        }
-        return true;
+        return (jobId % 100 != 89);
     }
 
     public String redirectionPage() {
