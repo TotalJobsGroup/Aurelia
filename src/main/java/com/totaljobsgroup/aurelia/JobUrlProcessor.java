@@ -12,19 +12,9 @@ public class JobUrlProcessor {
     private static final int MAX_JOB_ID_LENGTH = 5;
 
     public Optional<Integer> retrieveJobId(String effectiveUrl) {
-        if (effectiveUrl != null && effectiveUrl.contains("/")) {
-            int slashIndex = effectiveUrl.lastIndexOf("/");
-            if (slashIndex < effectiveUrl.length() - 1) {
-                String jobId = effectiveUrl.substring(slashIndex + 1);
-                if (jobId.length() > MAX_JOB_ID_LENGTH) {
-                    jobId = StringUtils.right(jobId, MAX_JOB_ID_LENGTH);
-                }
-                if (NumberUtils.isNumber(jobId)) {
-                    return Optional.of(Integer.parseInt(jobId));
-                }
-            }
-        }
-        return Optional.empty();
+        String jobId = StringUtils.substringAfterLast(effectiveUrl, "/");
+        jobId = StringUtils.right(jobId, MAX_JOB_ID_LENGTH);
+        return NumberUtils.isNumber(jobId) ? Optional.of(Integer.parseInt(jobId)) : Optional.empty();
     }
 
 }
