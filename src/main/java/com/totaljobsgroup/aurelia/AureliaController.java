@@ -2,10 +2,7 @@ package com.totaljobsgroup.aurelia;
 
 import com.totaljobsgroup.aurelia.model.AtsRequest;
 import com.totaljobsgroup.aurelia.model.AtsResponse;
-import com.totaljobsgroup.aurelia.model.AtsResponseHeader;
-import com.totaljobsgroup.aurelia.model.Attachment;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,8 +10,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-@SpringBootApplication
 public class AureliaController {
+
+    private final ApplicationProcessor applicationProcessor;
+
+    @Autowired
+    public AureliaController(ApplicationProcessor applicationProcessor) {
+        this.applicationProcessor = applicationProcessor;
+    }
 
     @ResponseBody
     @RequestMapping("/")
@@ -25,21 +28,8 @@ public class AureliaController {
     @ResponseBody
     @RequestMapping(value = "/apply", method = RequestMethod.POST)
     AtsResponse apply(@RequestBody AtsRequest atsiRequest) {
-        storeApplicantData(atsiRequest);
-        String backUrl = "https://ats.com/complete-page";
-        return AtsResponseBuilder.builder().withRedirection(backUrl).withStatus(AtsResponseHeader.Status.OK).build();
+        return applicationProcessor.processApplication(atsiRequest);
     }
 
-    private void storeApplicantData(AtsRequest atsiRequest) {
-        Attachment cv = atsiRequest.getBody().getCV();
-        String effectiveUrl = atsiRequest.getHeader().getEffectiveUrl();
-        // ...
-        // ... your logic
-        // ...
-    }
-
-    public static void main(String[] args) throws Exception {
-        SpringApplication.run(AureliaController.class, args);
-    }
 
 }
