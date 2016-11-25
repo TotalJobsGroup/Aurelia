@@ -9,7 +9,7 @@ The Aurelia implementation consumes example ATS Requests and produces example AT
 
 Aurelia is written in Java language with Spring framework and uses the Gradle build tool, however it is possible to use any technology that supports RESTful services. The data model for requests and responses is defined in json schema and can be reused in any other technologies that support json schema.
 
-The following steps will guide you through the process of building, running and testing the Aurelia application. To build and run the application you need Java 1.8 or later.
+The following steps will guide you through the process of building, running and testing the Aurelia application. To build and run the application you need Java 1.8 or later. You don't need to download Gradle - the application contains Gradle Wrapper which will download the corresponding Gradle distribution.
 
 The application will be built with Gradle which will download all necessary dependencies. If you have a proxy in your organization you can configure it in the `gradle.properties` file which is placed in the main folder of the project. An example proxy configuration is present and commented out.
 
